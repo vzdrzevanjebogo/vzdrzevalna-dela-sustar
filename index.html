@@ -18,11 +18,30 @@
 #photo-lightbox .close-photo{float:right;border:0;background:#244c3a;color:#fff;padding:7px 12px;border-radius:7px;cursor:pointer}
 @media(max-width:700px){#samodejna-galerija{grid-template-columns:repeat(2,minmax(0,1fr))}#samodejna-galerija .photo-card img{height:145px}}
 @media(max-width:430px){#samodejna-galerija{grid-template-columns:1fr}#samodejna-galerija .photo-card img{height:210px}}
+
+/* Projekti: tri klikljive kartice, fotografije se odprejo znotraj projekta */
+#samodejna-galerija{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+#samodejna-galerija .project-tile{display:block;width:100%;padding:0;border:0;text-align:left;background:white;border-radius:14px;overflow:hidden;box-shadow:0 6px 22px #1235221a;cursor:pointer;color:var(--ink)}
+#samodejna-galerija .project-tile img{width:100%;height:210px;object-fit:cover;display:block}
+#samodejna-galerija .project-tile .project-info{display:block;padding:16px 18px}
+#samodejna-galerija .project-tile strong{display:block;font-size:20px}
+#samodejna-galerija .project-tile small{display:block;color:var(--muted);margin-top:5px}
+#samodejna-galerija .project-tile:hover{transform:translateY(-3px)}
+#project-view{margin-top:24px}
+#project-view[hidden]{display:none}
+#project-view .project-back{background:var(--green);color:white;border:0;border-radius:8px;padding:10px 17px;cursor:pointer;font-weight:bold;margin-bottom:18px}
+#project-view .project-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#project-view figure{margin:0;background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 15px #12352216}
+#project-view figure button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+#project-view figure img{display:block;width:100%;height:195px;object-fit:cover}
+#project-view figcaption{font-size:15px;font-weight:600;padding:12px 14px}
+@media(max-width:700px){#samodejna-galerija,#project-view .project-photos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){#samodejna-galerija,#project-view .project-photos{grid-template-columns:1fr}}
 </style></head><body>
-<header><div class="nav"><a class="brand" href="#domov"><img alt="Logotip Vzdrževalna dela Bogomir Šuštar s.p." src="logo.png"/><span>VZDRŽEVALNA DELA<br/><small>Bogomir Šuštar s.p.</small></span></a><nav><a href="#storitve">Storitve</a><a href="#galerija">Galerija</a><a href="#ocene">Ocene</a><a href="#onas">O podjetju</a><a href="#kontakt">Kontakt</a></nav></div></header>
+<header><div class="nav"><a class="brand" href="#domov"><img alt="Logotip Vzdrževalna dela Bogomir Šuštar s.p." src="logo.png"/><span>VZDRŽEVALNA DELA<br/><small>Bogomir Šuštar s.p.</small></span></a><nav><a href="#storitve">Storitve</a><a href="#galerija">Projekti</a><a href="#ocene">Ocene</a><a href="#onas">O podjetju</a><a href="#kontakt">Kontakt</a></nav></div></header>
 <main><div class="hero" id="domov"><div class="wrap"><div class="eyebrow">Vzdrževanje in urejanje okolice · Goriška</div><h1>Urejena okolica. Vzdrževani objekti. Zanesljivo opravljeno delo.</h1><p>Urejanje zelenih površin, obrezovanje živih mej, hišniška popravila in različna vzdrževalna dela za zasebne ter poslovne naročnike.</p><a class="btn" href="#kontakt">Pošljite povpraševanje</a><a class="btn alt" href="#storitve">Oglejte si storitve</a></div></div>
 <section id="storitve"><div class="wrap"><div class="eyebrow">Kaj ponujamo</div><h2>Naše storitve</h2><p class="lead">Od rednega vzdrževanja okolice do posameznih popravil – storitve prilagodimo potrebam naročnika.</p><div class="grid"><article class="card"><div class="symbol">🌿</div><h3>Urejanje okolice</h3><p>Košnja trave, urejanje zelenic in skrb za urejen videz zunanjih površin.</p></article><article class="card"><div class="symbol">✂️</div><h3>Obrezovanje živih mej</h3><p>Oblikovanje in obrezovanje živih mej ter vzdrževanje grmovnic.</p></article><article class="card"><div class="symbol">🔧</div><h3>Hišniška popravila</h3><p>Manjša popravila in različna vzdrževalna opravila na objektih.</p></article><article class="card"><div class="symbol">🏢</div><h3>Vzdrževanje objektov</h3><p>Vzdrževalna dela za večstanovanjske, poslovne in druge objekte.</p></article><article class="card"><div class="symbol">🚏</div><h3>Vzdrževanje nadstrešnic</h3><p>Čiščenje in osnovna vzdrževalna dela na avtobusnih nadstrešnicah in urbani opremi.</p></article><article class="card"><div class="symbol">🚪</div><h3>Vrata, ključavnice in senčila</h3><p>Menjava ključavnic, kljuk in tečajev, nastavitve oken in vrat ter popravila rolet in žaluzij.</p></article><article class="card"><div class="symbol">🪑</div><h3>Montaža pohištva</h3><p>Sestavljanje pohištva, montaža polic, omaric in nosilcev.</p></article><article class="card"><div class="symbol">🖌️</div><h3>Pleskanje in manjša popravila</h3><p>Manjša pleskarska, vodovodna in sanitarna popravila ter čiščenje klimatskih naprav po dogovoru.</p></article></div></div></section>
-<section class="tint" id="galerija"><div class="wrap"><div class="eyebrow">Naše delo</div><h2>Galerija opravljenih del</h2><p class="lead">Fotografije urejanja zelenice in okrasnega vrta.</p><div class="gallery" id="samodejna-galerija"></div><p class="gallery-status" id="galerija-status">Nalagam fotografije ...</p><p style="margin-top:24px">Več naših referenc si lahko ogledate na <a href="https://www.mojmojster.net/izvajalec/vzdrzevanje_bogomir_sustar" rel="noopener" target="_blank">Mojmojster.net</a>.</p></div></section>
+<section class="tint" id="galerija"><div class="wrap"><div class="eyebrow">Naše delo</div><h2>Naši projekti</h2><p class="lead">Izberite projekt za ogled fotografij pred izvedbo in po njej.</p><div class="gallery" id="samodejna-galerija"></div><div id="project-view" hidden><button type="button" class="project-back">← Nazaj na projekte</button><h3 id="project-heading"></h3><div class="project-photos" id="project-photos"></div></div><p class="gallery-status" id="galerija-status">Nalagam fotografije ...</p><p style="margin-top:24px">Več naših referenc si lahko ogledate na <a href="https://www.mojmojster.net/izvajalec/vzdrzevanje_bogomir_sustar" rel="noopener" target="_blank">Mojmojster.net</a>.</p></div></section>
 <section id="ocene"><div class="wrap"><div class="eyebrow">Mnenja naročnikov</div><h2>Stranke nam zaupajo</h2><p class="lead">Na portalu Mojmojster je objavljenih 5 ocen strank in skupna ocena podjetja 9,8/10 (podatek ob pripravi spletne strani).</p><div class="grid"><article class="card"><h3>Mojca H.</h3><p>Pohvala za hitro izvedbo in kakovostno menjavo traku rolete.</p></article><article class="card"><h3>Suzana K.</h3><p>Pohvala za odzivnost, korektnost in konkurenčno ceno.</p></article><article class="card"><h3>Komel N.</h3><p>»Zelo profesionalno.«</p></article></div><p style="margin-top:24px"><a href="https://www.mojmojster.net/izvajalec/vzdrzevanje_bogomir_sustar" rel="noopener" target="_blank">Preberite vse ocene na Mojmojster.net →</a></p></div></section><section id="onas"><div class="wrap split"><div><div class="eyebrow">O podjetju</div><h2>Praktične rešitve za urejeno okolico in objekte</h2><p>Vzdrževalna dela Bogomir Šuštar s.p. nudi storitve urejanja okolice in vzdrževanja na Goriškem.</p><p>Ne glede na to, ali potrebujete enkratno ureditev ali redno vzdrževanje, nam lahko pošljete povpraševanje in opis želenih del.</p></div><div class="feature"><h2>Potrebujete ponudbo?</h2><p>Sporočite nam lokacijo, vrsto dela in želeni termin. Za lažjo oceno lahko priložite tudi fotografije.</p><a class="btn" href="#kontakt">Kontaktirajte nas</a></div></div></section>
 <section class="contact" id="kontakt"><div class="wrap"><div class="eyebrow">Stopite v stik</div><h2>Kontakt in povpraševanje</h2><p class="lead">Potrebujete košnjo, urejanje okolice ali vzdrževalna dela? Pokličite ali pišite ter opišite želeno storitev.</p><p><strong>Vzdrževalna dela Bogomir Šuštar s.p.</strong></p><p><strong>Telefon:</strong> <a href="tel:+38641775224">041 775 224</a><br/><strong>E-pošta:</strong> <a href="mailto:vzdrzevanjebogo@gmail.com">vzdrzevanjebogo@gmail.com</a><br/><strong>Naslov:</strong> Grgar 165c, 5251 Grgar<br/><strong>Območje izvajanja:</strong> Goriška</p><p style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn" href="tel:+38641775224">Pokliči zdaj</a><a class="btn" href="mailto:vzdrzevanjebogo@gmail.com?subject=Povpra%C5%A1evanje%20za%20vzdr%C5%BEevalna%20dela">Pošlji e-pošto</a></p><p><a href="https://www.mojmojster.net/izvajalec/vzdrzevanje_bogomir_sustar" rel="noopener" target="_blank">Oglejte si naš profil na Mojmojster.net</a></p></div></section></main><footer><img alt="Logotip podjetja" class="footer-logo" src="logo.png"/>© <span id="year">2026</span> Vzdrževalna dela Bogomir Šuštar s.p. · Vse pravice pridržane.</footer><script>document.getElementById('year').textContent=new Date().getFullYear()</script><dialog id="photo-lightbox"><button aria-label="Zapri" class="close-photo" type="button">Zapri ×</button><img alt="Povečana fotografija"/><p></p></dialog><script>
 (() => {
@@ -30,37 +49,106 @@
   const repo = 'vzdrzevalna-dela-sustar';
   const gallery = document.getElementById('samodejna-galerija');
   const status = document.getElementById('galerija-status');
+  const projectView = document.getElementById('project-view');
+  const projectHeading = document.getElementById('project-heading');
+  const projectPhotos = document.getElementById('project-photos');
   const modal = document.getElementById('photo-lightbox');
   const modalImg = modal.querySelector('img');
   const modalTitle = modal.querySelector('p');
   modal.querySelector('.close-photo').addEventListener('click', () => modal.close());
   modal.addEventListener('click', event => { if (event.target === modal) modal.close(); });
-  const originalNames = {
-    '9832.jpg':'Urejanje zelenice', '9835.jpg':'Pred košnjo',
-    '9836.jpg':'Urejanje okrasnega vrta', '9837.jpg':'Urejena okolica'
+  const projects = [
+    {id:'kosnja', title:'Košnja trave', prefix:'Kosnja - '},
+    {id:'grmovnice', title:'Obrezovanje grmovnic', prefix:'Grmovnice - '},
+    {id:'meja', title:'Obrezovanje žive meje', prefix:'Ziva meja - '}
+  ];
+  const known = {
+    '9835.jpg': ['kosnja','Pred košnjo'],
+    '9832.jpg': ['grmovnice','Urejanje zelenice'],
+    '9836.jpg': ['grmovnice','Urejanje okrasnega vrta'],
+    '9837.jpg': ['grmovnice','Urejena okolica'],
+    '20261106_093126.jpg': ['meja','Pred obrezovanjem'],
+    '20261106_101216.jpg': ['meja','Obrezovanje žive meje'],
+    '20261106_101228.jpg': ['meja','Obrezovanje žive meje'],
+    '20261106_101247.jpg': ['meja','Po obrezovanju']
   };
-  const titleFromName = name => {
-    if (originalNames[name]) return originalNames[name];
-    const base = name.replace(/\.(jpe?g|png|webp|gif)$/i,'').replace(/[_-]+/g,' ').trim();
-    return /^\d{8}\s?\d{6}$/.test(base) ? 'Opravljeno delo – ' + base.substring(0,8) : base;
-  };
-  fetch(`https://api.github.com/repos/${owner}/${repo}/contents/`, {headers:{Accept:'application/vnd.github+json'}})
-    .then(response => { if(!response.ok) throw Error('Galerije ni mogoče naložiti'); return response.json(); })
+  const clean = name => name.replace(/\.(jpe?g|png|webp|gif)$/i,'').replace(/[_-]+/g,' ').trim();
+  const fold = name => name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  function classify(name) {
+    if (known[name]) return {id:known[name][0], title:known[name][1]};
+    const base = clean(name);
+    const normal = fold(base);
+    // Pri novih fotografijah uporabite ime "Kosnja - Po košnji.jpg" itd.
+    for (const p of projects) {
+      const prefix = fold(p.prefix).trim();
+      if (normal.startsWith(prefix)) {
+        const title = base.slice(prefix.length).replace(/^\s*[-–:]\s*/, '').trim();
+        return {id:p.id, title:title || p.title};
+      }
+    }
+    if (/^(po\s+kosnji|po\s+kosnji\s*\(\d+\))$/.test(normal)) return {id:'kosnja',title:'Po košnji'};
+    if (/^pred\s+kosnjo/.test(normal)) return {id:'kosnja',title:'Pred košnjo'};
+    if (normal.includes('kosnj')) return {id:'kosnja',title:base};
+    if (normal.includes('grmovnic') || normal.includes('zelenic')) return {id:'grmovnice',title:base};
+    if (normal.includes('ziva meja') || normal.includes('zive meje')) return {id:'meja',title:base};
+    return null; // Neprepoznanih slik ne dodamo v napačen projekt.
+  }
+  const api = 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/';
+  const isPhoto = f => f.type === 'file' && /\.(jpe?g|png|webp|gif)$/i.test(f.name) && !/^logo\./i.test(f.name);
+  function openPhoto(file) {
+    modalImg.src = file.download_url;
+    modalImg.alt = file.title;
+    modalTitle.textContent = file.title;
+    modal.showModal();
+  }
+  function openProject(project, photos) {
+    gallery.hidden = true;
+    projectView.hidden = false;
+    projectHeading.textContent = project.title;
+    projectPhotos.replaceChildren();
+    photos.forEach(file => {
+      const fig = document.createElement('figure');
+      const btn = document.createElement('button'); btn.type = 'button';
+      btn.setAttribute('aria-label', 'Povečaj: ' + file.title);
+      const img = document.createElement('img'); img.src = file.download_url; img.alt = file.title; img.loading = 'lazy';
+      const caption = document.createElement('figcaption'); caption.textContent = file.title;
+      btn.append(img); fig.append(btn,caption); projectPhotos.append(fig);
+      btn.addEventListener('click', () => openPhoto(file));
+    });
+    projectView.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  projectView.querySelector('.project-back').addEventListener('click', () => {
+    projectView.hidden = true;
+    gallery.hidden = false;
+    gallery.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  fetch(api, {headers:{Accept:'application/vnd.github+json'}})
+    .then(response => { if (!response.ok) throw Error('Napaka pri nalaganju'); return response.json(); })
     .then(files => {
-      const photos = files.filter(f => f.type === 'file' && /\.(jpe?g|png|webp|gif)$/i.test(f.name) && !/^logo\./i.test(f.name))
-        .sort((a,b) => a.name.localeCompare(b.name,'sl',{numeric:true}));
-      gallery.replaceChildren();
-      photos.forEach(file => {
-        const title = titleFromName(file.name);
-        const figure = document.createElement('figure'); figure.className = 'photo-card';
-        const button = document.createElement('button'); button.type = 'button'; button.setAttribute('aria-label','Povečaj: '+title);
-        const img = document.createElement('img'); img.src = file.download_url; img.alt = title; img.loading = 'lazy';
-        const caption = document.createElement('figcaption'); caption.textContent = title;
-        button.append(img); figure.append(button,caption); gallery.append(figure);
-        button.addEventListener('click', () => { modalImg.src=file.download_url; modalImg.alt=title; modalTitle.textContent=title; modal.showModal(); });
+      const grouped = Object.fromEntries(projects.map(p => [p.id, []]));
+      files.filter(isPhoto).forEach(file => {
+        const match = classify(file.name);
+        if (match) grouped[match.id].push({...file,title:match.title});
       });
-      status.textContent = photos.length ? '' : 'Fotografij še ni. Naložite JPG ali PNG na GitHub.';
+      gallery.replaceChildren();
+      projects.forEach(project => {
+        const photos = grouped[project.id].sort((a,b) => a.name.localeCompare(b.name,'sl',{numeric:true}));
+        const tile = document.createElement('button'); tile.type = 'button'; tile.className = 'project-tile';
+        if (photos.length) {
+          const cover = document.createElement('img'); cover.src = photos[0].download_url;
+          cover.alt = project.title; cover.loading = 'lazy'; tile.append(cover);
+        } else {
+          const cover = document.createElement('div'); cover.className = 'project-image';
+          cover.textContent = 'Fotografije kmalu'; tile.append(cover);
+        }
+        const info = document.createElement('span'); info.className = 'project-info';
+        const title = document.createElement('strong'); title.textContent = project.title;
+        const count = document.createElement('small'); count.textContent = photos.length + ' fotografij · Poglej projekt';
+        info.append(title,count); tile.append(info); gallery.append(tile);
+        tile.addEventListener('click', () => openProject(project,photos));
+      });
+      status.textContent = '';
     })
-    .catch(() => { status.textContent = 'Fotografij trenutno ni mogoče naložiti. Poskusite osvežiti stran.'; });
+    .catch(() => { status.textContent = 'Projektov trenutno ni mogoče naložiti. Poskusite osvežiti stran.'; });
 })();
 </script></body></html>
